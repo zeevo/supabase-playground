@@ -1,4 +1,7 @@
 import { Button, Divider, Text } from "@nextui-org/react";
+import { Provider, SupabaseClient } from "@supabase/supabase-js";
+import { useState } from "react";
+import { RedirectTo, ViewType } from "./types";
 
 export interface Props {
   supabaseClient: SupabaseClient;
@@ -17,19 +20,11 @@ export interface Props {
 }
 
 function SocialAuth({
-  className,
-  style,
   supabaseClient,
-  children,
-  socialLayout = "vertical",
   socialColors = false,
-  socialButtonSize,
   providers,
-  verticalSocialLayout,
   redirectTo,
   onlyThirdPartyProviders,
-  magicLink,
-  ...props
 }: Props) {
   const buttonStyles: any = {
     azure: {
@@ -126,3 +121,5 @@ function SocialAuth({
     </>
   );
 }
+
+export default SocialAuth;
